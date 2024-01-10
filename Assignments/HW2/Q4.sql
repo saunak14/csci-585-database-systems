@@ -1,0 +1,10 @@
+-- Using  Oracle Database 19c on https://livesql.oracle.com/
+
+--No of scans between start and end date
+SELECT COUNT(*) AS NO_OF_SCANS FROM SCAN WHERE DATE_REPORTED BETWEEN TO_DATE('2023-09-10', 'YYYY-MM-DD') AND TO_DATE('2023-09-14', 'YYYY-MM-DD');
+--No of tests between start and end date
+SELECT COUNT(*) AS NO_OF_TESTS FROM TEST WHERE TEST_DATE BETWEEN TO_DATE('2023-09-10', 'YYYY-MM-DD') AND TO_DATE('2023-09-14', 'YYYY-MM-DD');
+--No of employees self-reporting symptoms
+SELECT COUNT(*) AS NO_OF_EMPLOYEE_SELF_REPORTS FROM SYMPTOM WHERE DATE_REPORTED BETWEEN TO_DATE('2023-09-10', 'YYYY-MM-DD') AND TO_DATE('2023-09-14', 'YYYY-MM-DD');
+--No of positive cases
+SELECT COUNT(*) AS NO_OF_POSITIVE_CASES FROM TEST WHERE TEST_RESULT='positive';
