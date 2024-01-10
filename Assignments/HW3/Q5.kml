@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml
+	xmlns="http://earth.google.com/kml/2.0">
+	<Document>
+		<Style id="z1">
+			<IconStyle>
+				<Icon>
+					<href>http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png</href>
+				</Icon>
+			</IconStyle>
+		</Style>
+		<Placemark>
+			<name>Home</name>
+			<styleUrl>#z1</styleUrl>
+			<Point>
+				<coordinates>-118.2914433,34.0277308</coordinates>
+			</Point>
+		</Placemark>
+		<Folder>
+			<name>Libraries</name>
+			<Placemark>
+				<name>Leavey Library</name>
+				<styleUrl>#z1</styleUrl>
+				<Point>
+					<coordinates>-118.2826457,34.0215424</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Doheny Library</name>
+				<styleUrl>#z1</styleUrl>
+				<Point>
+					<coordinates>-118.2841929,34.0202377</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Science and Engineering Library</name>
+				<styleUrl>#z1</styleUrl>
+				<Point>
+					<coordinates>-118.2889405,34.0200662</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+		<Folder>
+			<name>Eateries</name>
+			<Placemark>
+				<name>Coffee bean and tea leaf</name>
+				<styleUrl>#z1</styleUrl>
+				<Point>
+					<coordinates>-118.2866247,34.0235462</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Starbucks</name>
+				<styleUrl>#z1</styleUrl>
+				<Point>
+					<coordinates>-118.282268,34.021705</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Literatea</name>
+				<styleUrl>#z1</styleUrl>
+				<Point>
+					<coordinates>-118.2832783,34.020189</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+		<Folder>
+			<name>Waterworks</name>
+			<Placemark>
+				<name>Fountain in front of Tommy Trojan</name>
+				<styleUrl>#z1</styleUrl>
+				<Point>
+					<coordinates>-118.285202,34.020215</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Fountain in Ronald Tutor Campus Centre</name>
+				<styleUrl>#z1</styleUrl>
+				<Point>
+					<coordinates>-118.2860572,34.020459</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Fountain in USC Viterbi courtyard</name>
+				<styleUrl>#z1</styleUrl>
+				<Point>
+					<coordinates>-118.2890105,34.0206407</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+		<Folder>
+			<name>Department Buildings</name>
+			<Placemark>
+				<name>USC School of Cinematic Arts</name>
+				<styleUrl>#z1</styleUrl>
+				<Point>
+					<coordinates>-118.286177,34.023746</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>USC Viterbi School of Enginnering</name>
+				<styleUrl>#z1</styleUrl>
+				<Point>
+					<coordinates>-118.2890858,34.0208579</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>Thornton school of music</name>
+				<styleUrl>#z1</styleUrl>
+				<Point>
+					<coordinates>-118.2839064,34.0225343</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+		<Placemark>
+			<name>Convex Hull</name>
+			<Polygon>
+				<extrude>1</extrude>
+				<altitudeMode>relativeToGround</altitudeMode>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+            -118.2889405,34.0200662,100 
+            -118.2914433,34.0277308,100 
+            -118.282268,34.021705,100 
+            -118.2832783,34.020189,100 
+            -118.2889405,34.0200662,100 
+          </coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Folder>
+			<name>4 nearest neighbors</name>
+			<Placemark>
+				<LineString>
+					<extrude>1</extrude>
+					<tessellate>1</tessellate>
+					<coordinates>-118.2914433,34.0277308,0  -118.2866247,34.0235462,0</coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<LineString>
+					<extrude>1</extrude>
+					<tessellate>1</tessellate>
+					<coordinates>-118.2914433,34.0277308,0  -118.286177,34.023746,0</coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<LineString>
+					<extrude>1</extrude>
+					<tessellate>1</tessellate>
+					<coordinates>-118.2914433,34.0277308,0  -118.2890858,34.0208579,0</coordinates>
+				</LineString>
+			</Placemark>
+			<Placemark>
+				<LineString>
+					<extrude>1</extrude>
+					<tessellate>1</tessellate>
+					<coordinates>-118.2914433,34.0277308,0  -118.2890105,34.0206407,0</coordinates>
+				</LineString>
+			</Placemark>
+		</Folder>
+	</Document>
+</kml>

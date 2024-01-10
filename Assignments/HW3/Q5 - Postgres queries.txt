@@ -1,0 +1,25 @@
+-- Using Postgres with Postgis
+CREATE TABLE campusMap(id VARCHAR (50) PRIMARY KEY,points geometry);
+		  
+Insert into campusMap (id, points) VALUES ('Home',ST_GeomFromText('POINT(-118.2914433 34.0277308)', 4326));
+Insert into campusMap (id, points) VALUES ('Leavey Library',ST_GeomFromText('POINT(-118.2826457 34.0215424)', 4326));
+Insert into campusMap (id, points) VALUES ('Doheny Library',ST_GeomFromText('POINT(-118.2841929 34.0202377)', 4326));
+Insert into campusMap (id, points) VALUES ('Science & Engineering Library',ST_GeomFromText('POINT(-118.2889405 34.0200662)', 4326));
+Insert into campusMap (id, points) VALUES ('Coffee bean and tea leaf',ST_GeomFromText('POINT(-118.2866247 34.0235462)', 4326));
+Insert into campusMap (id, points) VALUES ('Starbucks',ST_GeomFromText('POINT(-118.282268 34.021705)', 4326));
+Insert into campusMap (id, points) VALUES ('Literatea',ST_GeomFromText('POINT(-118.2832783 34.020189)', 4326));
+Insert into campusMap (id, points) VALUES ('Fountain in front of Tommy Trojan',ST_GeomFromText('POINT(-118.285202 34.020215)', 4326));
+Insert into campusMap (id, points) VALUES ('Fountain in Ronald Tutor Campus Centre',ST_GeomFromText('POINT(-118.2860572 34.020459)', 4326));
+Insert into campusMap (id, points) VALUES ('Fountain in USC Viterbi courtyard',ST_GeomFromText('POINT(-118.2890105 34.0206407)', 4326));
+Insert into campusMap (id, points) VALUES ('USC School of Cinematic Arts',ST_GeomFromText('POINT(-118.286177 34.023746)', 4326));
+Insert into campusMap (id, points) VALUES ('USC Viterbi School of Enginnering',ST_GeomFromText('POINT(-118.2890858 34.0208579)', 4326));
+Insert into campusMap (id, points) VALUES ('Thornton school of music',ST_GeomFromText('POINT(-118.2839064 34.0225343)', 4326));
+
+-- Convex Hull of all 13 points
+SELECT ST_AsText(ST_ConvexHull(ST_Collect(points::geometry))) FROM campusMap;
+
+-- Select 4 nearest neighbors from the Home point from all points excluding the Home point
+SELECT * FROM campusMap
+WHERE id NOT IN ('Home')
+ORDER BY points <-> (SELECT points from campusMap WHERE id = 'Home')
+LIMIT 4;

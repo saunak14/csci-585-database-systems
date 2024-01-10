@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>OL</title>
+<script src="https://openlayers.org/api/OpenLayers.js">
+</script>
+<style>
+#map {
+    width:400px;
+    height:400px;
+}
+</style>
+</head>
+
+<body>
+<div id="map"></div>
+
+
+<script>
+// your JS code 
+console.log("Hola, all!");
+alert("Hello JS World!");
+
+var locations = {"home":[{"lat":34.0277308, "long":-118.2914433}], 
+         "libraries":[{"lat":34.0215424, "long":-118.2826457},
+		              {"lat":34.0202377, "long":-118.2841929},
+					  {"lat":34.0200662, "long":-118.2889405}],
+		 "eateries":[{"lat":34.0235462, "long":-118.2866247},
+		              {"lat":34.021705, "long":-118.282268},
+					  {"lat":34.020189, "long":-118.2832783}],
+		 "waterworks":[{"lat":34.020215, "long":-118.285202},
+		              {"lat":34.020459, "long":-118.2860572},
+					  {"lat":34.0206407, "long":-118.2890105}],
+		 "deptBuildings":[{"lat":34.023746, "long":-118.286177},
+		              {"lat":34.0208579, "long":-118.2890858},
+					  {"lat":34.0225343, "long":-118.2839064}]};
+localStorage.setItem("myData",JSON.stringify(locations));
+
+
+//next [presumably after closing the browser, and reloading our html]
+// we can fetch the stored data, just by supplying its key:
+var dataStored = JSON.parse(localStorage.getItem("myData"));
+// verify that we fetched our data correctly
+console.log(dataStored); 
+
+var home = dataStored.home;
+var libraries = dataStored.eateries
+var waterworks = dataStored.waterworks
+var deptBuildings = dataStored.deptBuildings
+
+
+// here's how to plot points on a map, using OpenLayers:
+// [this is code I mildly modified, from an existing source]
+function initMap() {
+        map = new OpenLayers.Map('map');
+        basemap = new OpenLayers.Layer.OSM("Simple OSM Map");
+        map.addLayer(basemap);
+        markers = new OpenLayers.Layer.Markers("Markers");
+        map.addLayer(markers);
+}// initMap()
+
+function addMarker(latitude, longitude) {
+        var lonLat = new OpenLayers.LonLat(longitude, latitude)
+            .transform(
+                new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+                map.getProjectionObject() // to Spherical Mercator Projection
+        );
+        var point = new OpenLayers.Marker(lonLat);
+        markers.addMarker(point);
+        map.setCenter(lonLat, 8); // second arg is zoom level
+        //console.log(latitude + ", " + longitude);
+}// addMarker()
+
+
+// load and setup map layers
+initMap();
+
+for(var coord in home) { 
+  addMarker(home[coord].lat, home[coord].long); 
+}
+for(var coord in libraries) { 
+  addMarker(libraries[coord].lat, libraries[coord].long); 
+}
+for(var coord in waterworks) { 
+  addMarker(waterworks[coord].lat, waterworks[coord].long); 
+}
+for(var coord in deptBuildings) { 
+  addMarker(deptBuildings[coord].lat, deptBuildings[coord].long); 
+}
+</script>
+
+</body>
+
+</html>
